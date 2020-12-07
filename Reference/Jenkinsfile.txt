@@ -93,7 +93,7 @@ pipeline {
 		//Code starts for Deploy War on Tomcat Server
 		stage('Deploy War on Tomcat Server') {
             steps {
-                sh 'cp /var/jenkins_home/workspace/verity-devops-ex/target/ExpenseApp-1.war /tmp/apache-tomcat-9.0.20/webapps'
+                sh 'cp /var/jenkins_home/workspace/VD/target/ExpenseApp-1.war /tmp/apache-tomcat-9.0.20/webapps'
             }
         }
 		//Code ends for stage Deploy War on Tomcat Server
@@ -113,7 +113,7 @@ pipeline {
 		stage('System Test') {
             steps {
 				//Change git url below as per your forked github repository URL
-				git url: 'https://github.com/umangsaltuniv/EMSystemTests-ex.git'
+				git url: 'https://github.com/umangsaltuniv/VD-ST.git'
             	sh 'mvn -Dtest=ExpenseManagerSystemTest test'
             }
         }
