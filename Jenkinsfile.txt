@@ -53,10 +53,10 @@ pipeline {
 												sh 'mvn -Dtest=ExpenseManagerSystemTest test'
 											  }
 										}
-					stage('Branch mybranch'){
+					stage('Branch mybranch2'){
 										steps {
 												//Change git url below as per your forked github repository URL
-												git url: 'https://github.com/umangsaltuniv/VD-ST.git', branch: 'mybranch'
+												git url: 'https://github.com/umangsaltuniv/VD-ST.git', branch: 'mybranch2'
 												sh 'mvn -Dtest=ExpenseManagerSystemTest test'
 											  }
 				
