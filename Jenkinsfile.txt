@@ -42,7 +42,7 @@ pipeline {
 		//Code ends for stage Deploy War on Tomcat Server
 		
 	
-		/*
+		
 		//Code starts for stage System Test - Way1
 		stage('Parallel System Test') {
 			parallel{
@@ -53,10 +53,10 @@ pipeline {
 												sh 'mvn -Dtest=ExpenseManagerSystemTest test'
 											  }
 										}
-					stage('Branch mybranch2'){
+					stage('Branch mybranch'){
 										steps {
 												//Change git url below as per your forked github repository URL
-												git url: 'https://github.com/umangsaltuniv/VD-ST.git', branch: 'mybranch2'
+												git url: 'https://github.com/umangsaltuniv/VD-ST.git', branch: 'mybranch'
 												sh 'mvn -Dtest=ExpenseManagerSystemTest test'
 											  }
 				
@@ -64,7 +64,7 @@ pipeline {
 					}
 											}
 		//Code ends for stage System Test - Way1	
-		*/
+		
 		
 		/*
 		//Code starts for stage System Test - Way2
@@ -90,29 +90,6 @@ pipeline {
 		//Code ends for stage System Test - Way2
 		*/
 		
-		
-		//Code starts for stage System Test - Way3
-		stage('Parallel System Test') {
-			parallel{
-					stage('Branch mybranch2'){
-										steps {
-												//Change git url below as per your forked github repository URL
-												git url: 'https://github.com/umangsaltuniv/VD-ST.git', branch: 'mybranch2'
-												sh 'mvn -Dtest=ExpenseManagerSystemTest test'
-											  }
-										}
-					stage('Branch mybranch3'){
-										steps {
-												//Change git url below as per your forked github repository URL
-												git url: 'https://github.com/umangsaltuniv/VD-ST.git', branch: 'mybranch3'
-												sh 'mvn -Dtest=ExpenseManagerSystemTest test'
-											  }
-				
-										}
-					}
-											}
-		//Code ends for stage System Test - Way3	
-	
 	
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
     }
