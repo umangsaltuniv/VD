@@ -37,10 +37,10 @@ pipeline {
 		
 		//Code starts for stage System Test
 		stage('Parallel Stage System Test') {
-			when{
-					branch 'main'
-			}
-			//failFast true
+			//when{
+			//		branch 'main'
+			//}
+			failFast true
 			parallel{
 					stage('Branch main'){
 										steps {
