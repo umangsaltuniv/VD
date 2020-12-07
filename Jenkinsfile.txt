@@ -93,6 +93,10 @@ pipeline {
 		
 		//Code starts for stage System Test - Way3
 		stage('Parallel System Test') {
+		when{
+			branch 'main'
+			}
+			failFast true
 			parallel{
 					stage('Branch mybranch2'){
 										steps {
