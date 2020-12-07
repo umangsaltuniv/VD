@@ -5,7 +5,15 @@ pipeline {
 		
 		// ******ALL CODE TO BE ADDED BELOW THIS COMMENT******
 		
-	
+				
+		//Code starts for stage Clean
+        stage('Clean') {
+            steps {
+                sh 'mvn clean'
+            }
+        }
+		//Code ends for stage Clean
+		
 		
 		//Code starts for stage Install
 		stage('Install') {
@@ -48,7 +56,7 @@ pipeline {
 												git url: 'https://github.com/umangsaltuniv/VD-ST.git', branch: 'main'
 												sh 'mvn -Dtest=ExpenseManagerSystemTest test'
 											  }
-										},
+										}
 					stage('Branch mybranch2'){
 										steps {
 												//Change git url below as per your forked github repository URL
