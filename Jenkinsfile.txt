@@ -93,15 +93,8 @@ pipeline {
 		
 		//Code starts for stage System Test - Way3
 		stage('Parallel System Test') {
-		when{
-			branch 'main'
-			}
-			failFast true
 			parallel{
 					stage('Branch mybranch2'){
-					agent {
-                        label "for-branch-2"
-                    }
 										steps {
 												//Change git url below as per your forked github repository URL
 												git url: 'https://github.com/umangsaltuniv/VD-ST.git', branch: 'mybranch2'
@@ -109,9 +102,6 @@ pipeline {
 											  }
 										}
 					stage('Branch mybranch3'){
-					agent {
-                        label "for-branch-3"
-                    }
 										steps {
 												//Change git url below as per your forked github repository URL
 												git url: 'https://github.com/umangsaltuniv/VD-ST.git', branch: 'mybranch3'
