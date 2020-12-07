@@ -44,23 +44,19 @@ pipeline {
 	
 		
 		//Code starts for stage System Test
-		stage('Parallel Stage System Test') {
-			//when{
-			//		branch 'main'
-			//}
-			//failFast true
+		stage('Parallel System Test') {
 			parallel{
 					stage('Branch main'){
 										steps {
 												//Change git url below as per your forked github repository URL
-												git url: 'https://github.com/umangsaltuniv/VD-ST.git', branch: 'main'
+												git url: 'https://github.com/umangsaltuniv/VD-ST.git'
 												sh 'mvn -Dtest=ExpenseManagerSystemTest test'
 											  }
 										}
 					stage('Branch mybranch2'){
 										steps {
 												//Change git url below as per your forked github repository URL
-												git url: 'https://github.com/umangsaltuniv/VD-ST.git', branch: 'mybranch2'
+												git url: 'https://github.com/umangsaltuniv/VD-ST.git'
 												sh 'mvn -Dtest=ExpenseManagerSystemTest test'
 											  }
 				
