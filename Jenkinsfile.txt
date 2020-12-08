@@ -63,7 +63,7 @@ pipeline {
         }
 		//Code ends for stage Deploy War on Tomcat Server
 		
-		
+		/*
 		//Code starts for stage System Test
 		stage('System Test') {
             steps {
@@ -73,7 +73,7 @@ pipeline {
             }
         }
 		//Code ends for stage System Test	
-		
+		*/
 		
 		/*
 		//Code starts for stage System Test - Way1
@@ -99,7 +99,7 @@ pipeline {
 		//Code ends for stage System Test - Way1	
 		*/
 		
-		/*
+		
 		//Code starts for stage System Test - Way2
 		stage('Parallel System Test') {
 			parallel{
@@ -121,7 +121,7 @@ pipeline {
 					}
 											}
 		//Code ends for stage System Test - Way2
-		*/
+		
 		
 	
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
