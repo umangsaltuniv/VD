@@ -41,8 +41,18 @@ pipeline {
         }
 		//Code ends for stage Deploy War on Tomcat Server
 		
-	
+		//Code starts for stage System Test
+		stage('System Test') {
+            steps {
+				//Change git url below as per your forked github repository URL
+				git url: 'https://github.com/umangsaltuniv/VD-ST.git'
+            	sh 'mvn -Dtest=ExpenseManagerSystemTest test'
+            }
+        }
+		//Code ends for stage System Test	
 		
+		
+		/*
 		//Code starts for stage System Test - Way1
 		stage('Parallel System Test') {
 			parallel{
@@ -64,7 +74,7 @@ pipeline {
 					}
 											}
 		//Code ends for stage System Test - Way1	
-		
+		*/
 		
 		/*
 		//Code starts for stage System Test - Way2
