@@ -99,7 +99,6 @@ pipeline {
 		//Code starts for moving war file from jenkins container to test container
 		stage('Deploy War on Test Server') {
             steps {
-				sh 'docker run -p 8088:8080 -d --name testenv tomcat:9.0'
 				sh 'docker cp jenkinsenv:/tmp/apache-tomcat-9.0.20/webapps/ExpenseApp-1.war /home/ubuntu'
 				sh 'docker cp /home/ubuntu/ExpenseApp-1.war testenv:/usr/local/tomcat/webapps'
             }
