@@ -36,14 +36,37 @@ pipeline {
         }
 		//Code ends for stage Compile
 		
+		//Code starts for exit from container1
+		stage('test pwd1') {
+            steps {
+				echo ****************
+				sh 'pwd'
+            }
+        }
+		//Code ends for exit from container	1
+		
+		/*
 		//Code starts for exit from container
-		stage('test pwd') {
+		stage('exit container') {
+            steps {
+				echo '****************'
+				sh 'exit'
+            }
+        }
+		//Code ends for exit from container	
+		*/
+		
+		/*
+		//Code starts for exit from container2
+		stage('test pwd2') {
             steps {
 				echo '****************'
 				sh 'pwd'
             }
         }
-		//Code ends for exit from container	
+		//Code ends for exit from container2
+		*/
+		
 		
 		/*
 			
