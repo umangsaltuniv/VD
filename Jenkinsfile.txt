@@ -39,8 +39,8 @@ pipeline {
 		//Code starts for exit from container1
 		stage('test pwd1') {
             steps {
-				echo ****************
-				sh 'pwd'
+				echo '****************'
+				echo 'pwd'
             }
         }
 		//Code ends for exit from container	1
