@@ -9,6 +9,9 @@ pipeline {
 		stage('SCM Checkout') {
             steps {
                 git url: 'https://github.com/umangsaltuniv/VD.git', branch: 'main'
+				
+				//Below git-creds is an id name that we need to set in jenkins credentials section with git username & password
+				//git credentialsId: 'git-creds', url: 'https://github.com/umangsaltuniv/VD.git', branch: 'main'
             }
         }
 		
@@ -21,6 +24,8 @@ pipeline {
                 sh 'mvn clean'
             }
         }
+		
+		
 		//Code ends for stage Clean
 		
 			//Code starts for stage Compile
@@ -30,6 +35,16 @@ pipeline {
             }
         }
 		//Code ends for stage Compile
+		
+		//Code starts for exit from container
+		stage('test pwd') {
+            steps {
+				echo '****************'
+				sh 'pwd'
+            }
+        }
+		//Code ends for exit from container	
+		
 		
 			
 		//Code starts for stage Unit Test
@@ -82,6 +97,8 @@ pipeline {
             }
         }
 		//Code ends for stage System Test	
+		
+		
 		
 		
 		/*
