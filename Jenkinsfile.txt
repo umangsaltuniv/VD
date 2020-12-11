@@ -46,22 +46,12 @@ pipeline {
 		//Code ends for exit from container	1
 		
 		
-		//Code starts for exit from container
-		stage('exit container') {
-            steps {
-				echo '****************'
-				sh 'exit'
-            }
-        }
-		//Code ends for exit from container	
-		
-		
 		
 		//Code starts for exit from container2
-		stage('test pwd2') {
+		stage('container start') {
             steps {
 				echo '****************'
-				sh 'pwd'
+				sh 'docker run -p 8088:8080 -d --name testenv tomcat:9.0'
             }
         }
 		//Code ends for exit from container2
