@@ -95,6 +95,15 @@ pipeline {
         }
 		//Code ends for running test environment container from tomcat image
 		
+		//Code starts for pwd
+		stage('pwd') {
+            steps {
+				echo '****************'
+				sh 'pwd'
+            }
+        }
+		//Code ends for pwd
+		
 		
 		//Code starts for moving war file from jenkins container to test container
 		stage('Deploy War on Test Server') {
@@ -104,16 +113,6 @@ pipeline {
             }
         }
 		//Code ends for moving war file from jenkins container to test container
-		
-		
-		//Code starts for pwd
-		stage('pwd') {
-            steps {
-				echo '****************'
-				sh 'pwd'
-            }
-        }
-		//Code ends for pwd	1
 		
 		
 		
