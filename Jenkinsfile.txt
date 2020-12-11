@@ -5,6 +5,15 @@ pipeline {
 		
 		// ******ALL CODE TO BE ADDED BELOW THIS COMMENT******
 		
+		//Code starts for stage git checkout
+		stage('SCM Checkout') {
+            steps {
+                git url: 'https://github.com/umangsaltuniv/VD.git', branch: 'main'
+            }
+        }
+		
+		
+		//Code ends for stage git checkout
 				
 		//Code starts for stage Clean
         stage('Clean') {
@@ -63,7 +72,7 @@ pipeline {
         }
 		//Code ends for stage Deploy War on Tomcat Server
 		
-		/*
+		
 		//Code starts for stage System Test
 		stage('System Test') {
             steps {
@@ -73,7 +82,7 @@ pipeline {
             }
         }
 		//Code ends for stage System Test	
-		*/
+		
 		
 		/*
 		//Code starts for stage System Test - Way1
@@ -123,7 +132,7 @@ pipeline {
 		//Code ends for stage System Test - Way2
 		*/
 		
-		
+		/*
 		//Code starts for stage System Test - Way3
 		stage('Parallel System Test') {
 										steps {
@@ -144,7 +153,7 @@ pipeline {
 										}
 										}
 		//Code ends for stage System Test - Way3
-		
+		*/
 	
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
     }
