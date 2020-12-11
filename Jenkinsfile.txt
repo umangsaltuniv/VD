@@ -15,7 +15,6 @@ pipeline {
             }
         }
 		
-		
 		//Code ends for stage git checkout
 				
 		//Code starts for stage Clean
@@ -34,40 +33,8 @@ pipeline {
                 sh 'mvn compile'
             }
         }
+		
 		//Code ends for stage Compile
-		
-		//Code starts for exit from container1
-		stage('test pwd1') {
-            steps {
-				echo '****************'
-				sh 'pwd'
-            }
-        }
-		//Code ends for exit from container	1
-		
-		
-		
-		//Code starts for exit from container2
-		stage('container start') {
-            steps {
-				echo '****************'
-				sh 'docker run -p 8088:8080 -d --name testenv tomcat:9.0'
-            }
-        }
-		//Code ends for exit from container2
-		
-		
-		//Code starts for exit from container1
-		stage('test pwd2') {
-            steps {
-				echo '****************'
-				sh 'pwd'
-            }
-        }
-		//Code ends for exit from container	1
-		
-		
-		/*
 			
 		//Code starts for stage Unit Test
         stage('Unit Test') {
@@ -119,7 +86,36 @@ pipeline {
             }
         }
 		//Code ends for stage System Test	
-		*/
+		
+		//Code starts for running test environment container from tomcat image
+		stage('Test environment container start') {
+            steps {
+				sh 'docker run -p 8088:8080 -d --name testenv tomcat:9.0'
+            }
+        }
+		//Code ends for running test environment container from tomcat image
+		
+		
+		//Code starts for moving war file from jenkins container to test container
+		stage('Deploy War on Test Server') {
+            steps {
+				sh 'docker run -p 8088:8080 -d --name testenv tomcat:9.0'
+				sh 'docker cp jenkinsenv:/tmp/apache-tomcat-9.0.20/webapps/ExpenseApp-1.war /home/ubuntu'
+				sh 'docker cp /home/ubuntu/ExpenseApp-1.war testenv:/usr/local/tomcat/webapps'
+            }
+        }
+		//Code ends for moving war file from jenkins container to test container
+		
+		
+		//Code starts for pwd
+		stage('pwd') {
+            steps {
+				echo '****************'
+				sh 'pwd'
+            }
+        }
+		//Code ends for pwd	1
+		
 		
 		
 		
