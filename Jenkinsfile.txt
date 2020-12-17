@@ -5,6 +5,7 @@ pipeline {
 		
 		// *******ALL CODE TO BE ADDED BELOW THIS COMMENT******
 		
+		/*
 		//Code starts for stage git checkout
 		stage('SCM Checkout') {
             steps {
@@ -16,7 +17,10 @@ pipeline {
         }
 		
 		//Code ends for stage git checkout
-				
+		
+		*/
+		
+		
 		//Code starts for stage Clean
         stage('Clean') {
             steps {
@@ -76,7 +80,7 @@ pipeline {
         }
 		//Code ends for stage Deploy War on Tomcat Server
 		
-		
+		/*
 		//Code starts for stage System Test
 		stage('System Test') {
             steps {
@@ -86,7 +90,9 @@ pipeline {
             }
         }
 		//Code ends for stage System Test	
+		*/
 		
+		/*
 		//Code starts for running test environment container from tomcat image
 		stage('Test environment container start') {
             steps {
@@ -113,11 +119,11 @@ pipeline {
             }
         }
 		//Code ends for moving war file from jenkins container to test container
+		*/
 		
 		
 		
 		
-		/*
 		//Code starts for stage System Test - Way1
 		stage('Parallel System Test') {
 			parallel{
@@ -139,7 +145,7 @@ pipeline {
 					}
 											}
 		//Code ends for stage System Test - Way1	
-		*/
+		
 		
 		/*
 		//Code starts for stage System Test - Way2
